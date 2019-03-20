@@ -1,22 +1,7 @@
 <?php if (! empty($task['category_id'])): ?>
 <div class="task-board-category-container task-board-category-container-color">
     <span class="task-board-category category-<?= $this->text->e($task['category_name']) ?> <?= $task['category_color_id'] ? "color-{$task['category_color_id']}" : '' ?>">
-        <?php if ($not_editable): ?>
-            <?= $this->text->e($task['category_name']) ?>
-        <?php else: ?>
-            <?= $this->url->link(
-                $this->text->e($task['category_name']),
-                'TaskModificationController',
-                'edit',
-                array('task_id' => $task['id'], 'project_id' => $task['project_id']),
-                false,
-                'js-modal-medium' . (! empty($task['category_description']) ? ' tooltip' : ''),
-                t('Change category')
-            ) ?>
-            <?php if (! empty($task['category_description'])): ?>
-                <?= $this->app->tooltipMarkdown($task['category_description']) ?>
-            <?php endif ?>
-        <?php endif ?>
+        <?= $this->text->e($task['category_name']) ?>
     </span>
 </div>
 <?php endif ?>
@@ -111,10 +96,6 @@
                     $task['nb_comments'] == 1 ? t('%d comment', $task['nb_comments']) : t('%d comments', $task['nb_comments'])
                 ) ?>
             <?php endif ?>
-        <?php endif ?>
-
-        <?php if (! empty($task['description'])): ?>
-            <?= $this->app->tooltipLink('<i class="fa fa-file-text-o"></i>', $this->url->href('BoardTooltipController', 'description', array('task_id' => $task['id'], 'project_id' => $task['project_id']))) ?>
         <?php endif ?>
 
         <?php if ($task['is_active'] == 1): ?>
