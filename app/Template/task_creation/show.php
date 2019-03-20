@@ -20,10 +20,9 @@
             <?= $this->task->renderSwimlaneField($swimlanes_list, $values, $errors) ?>
             <?= $this->task->renderPriorityField($project, $values) ?>
 
-            <?= $this->task->renderDueDateField($values, $errors) ?>
             <?= $this->task->renderStartDateField($values, $errors) ?>
+            <?= $this->task->renderDueDateField($values, $errors) ?>
             <?= $this->task->renderTimeEstimatedField($values, $errors) ?>
-            <?= $this->task->renderTimeSpentField($values, $errors) ?>
 
             <?= $this->hook->render('template:task:form:second-column', array('values' => $values, 'errors' => $errors)) ?>
         </div>

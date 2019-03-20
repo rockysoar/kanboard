@@ -19,10 +19,9 @@
             <?= $this->task->renderAssigneeField($users_list, $values, $errors) ?>
             <?= $this->task->renderPriorityField($project, $values) ?>
 
-            <?= $this->task->renderDueDateField($values, $errors) ?>
-            <?= $this->task->renderStartDateField($values, $errors) ?>
-            <?= $this->task->renderTimeEstimatedField($values, $errors) ?>
-            <?= $this->task->renderTimeSpentField($values, $errors) ?>
+            <?= $this->task->renderStartDateField($values, $errors, ['readonly']) ?>
+            <?= $this->task->renderDueDateField($values, $errors, ['readonly']) ?>
+            <?= $this->task->renderTimeEstimatedField($values, $errors, ['readonly']) ?>
             <?= $this->hook->render('template:task:form:second-column', array('values' => $values, 'errors' => $errors)) ?>
         </div>
 
