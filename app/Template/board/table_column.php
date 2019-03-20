@@ -19,12 +19,6 @@
                 <?= $this->task->getNewBoardTaskButton($swimlane, $column) ?>
             <?php endif ?>
 
-            <?php if ($column['nb_tasks'] > 0): ?>
-            <span title="<?= t('Task count') ?>">
-                (<span id="task-number-column-<?= $column['id'] ?>"><?= $column['nb_tasks'] ?></span>)
-            </span>
-            <?php endif ?>
-
             <span class="board-column-title">
                 <?php if ($not_editable): ?>
                     <?= $this->text->e($column['title']) ?>
